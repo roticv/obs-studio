@@ -51,7 +51,7 @@ NPROC="${NPROC:-$(sysctl -n hw.ncpu)}"
 CURRENT_ARCH=$(uname -m)
 
 BUILD_DEPS=(
-    "obs-deps ${MACOS_DEPS_VERSION:-${CI_DEPS_VERSION}}"
+    #"obs-deps ${MACOS_DEPS_VERSION:-${CI_DEPS_VERSION}}"
     "qt-deps ${QT_VERSION:-${CI_QT_VERSION}} ${MACOS_DEPS_VERSION:-${CI_DEPS_VERSION}}"
     "cef ${MACOS_CEF_BUILD_VERSION:-${CI_MACOS_CEF_VERSION}}"
     "vlc ${VLC_VERSION:-${CI_VLC_VERSION}}"
@@ -327,13 +327,9 @@ bundle_dylibs() {
         ./OBS.app/Contents/PlugIns/obs-vst.so
         ./OBS.app/Contents/PlugIns/rtmp-services.so
         ./OBS.app/Contents/MacOS/obs-ffmpeg-mux
-        ./OBS.app/Contents/MacOS/obslua.so
-        ./OBS.app/Contents/MacOS/_obspython.so
         ./OBS.app/Contents/PlugIns/obs-x264.so
         ./OBS.app/Contents/PlugIns/text-freetype2.so
         ./OBS.app/Contents/PlugIns/obs-outputs.so
-        ./OBS.app/Contents/PlugIns/aja.so
-        ./OBS.app/Contents/PlugIns/aja-output-ui.so
         )
 
     SEARCH_PATHS=(
@@ -678,7 +674,7 @@ obs-build-main() {
     ensure_dir ${CHECKOUT_DIR}
     check_macos_version
     step "Fetching OBS tags..."
-    /usr/bin/git fetch origin --tags
+    #/usr/bin/git fetch origin --tags
     GIT_BRANCH=$(/usr/bin/git rev-parse --abbrev-ref HEAD)
     GIT_HASH=$(/usr/bin/git rev-parse --short HEAD)
     GIT_TAG=$(/usr/bin/git describe --tags --abbrev=0)

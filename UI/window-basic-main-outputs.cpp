@@ -743,15 +743,15 @@ bool SimpleOutput::SetupStreaming(obs_service_t *service)
 
 	const char *type = obs_service_get_output_type(service);
 	if (!type) {
-		type = "rtmp_output";
-		const char *url = obs_service_get_url(service);
+		type = "rush_output";
+		/*const char *url = obs_service_get_url(service);
 		if (url != NULL &&
 		    strncmp(url, FTL_PROTOCOL, strlen(FTL_PROTOCOL)) == 0) {
 			type = "ftl_output";
 		} else if (url != NULL && strncmp(url, RTMP_PROTOCOL,
 						  strlen(RTMP_PROTOCOL)) != 0) {
 			type = "ffmpeg_mpegts_muxer";
-		}
+		}*/
 	}
 
 	/* XXX: this is messy and disgusting and should be refactored */
