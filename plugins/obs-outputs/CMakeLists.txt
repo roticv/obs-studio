@@ -131,8 +131,6 @@ set(obs-outputs_librtmp_HEADERS
 	librtmp/amf.h
 	librtmp/bytes.h
 	librtmp/cencode.h
-	librtmp/dh.h
-	librtmp/dhgroups.h
 	librtmp/handshake.h
 	librtmp/http.h
 	librtmp/log.h
